@@ -10,5 +10,15 @@ class ColorConverter:
             raise InvalidInputError("Not a valid image input")
         self.img = img
 
-    def make_grayscale(self):
+    def to_RGB(self):
+        return cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
+
+    def to_grayscale(self):
         return cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
+
+    def get_reds(self):
+        return self.img.item(10, 10, 2)
+
+    def set_reds(self):
+        self.img.itemset((10, 10, 2), 100)
+        return self.img
