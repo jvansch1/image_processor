@@ -13,9 +13,9 @@ from gui import GUI
 # Need to convert to RGB before plot with matplotlib
 
 manager = ImageManager()
-img = manager.upload("john.png")
-RGB_image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-gui = GUI()
+# img = manager.upload("john.png")
+# RGB_image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+gui = GUI(manager)
 # print(img[0])
 # print(RGB_image[0])
 
@@ -28,15 +28,15 @@ gui = GUI()
 #grey image(must specify a gray color map in imshow)
 
 # manager.make_grayscale()
-manager.convert('to_grayscale')
+# manager.convert('to_grayscale')
 # reds = manager.get_reds()
 # manager.set_reds()
 # print(reds)
 # manager.display_image(figsize=(5, 6), cmap='gray')
 # figure = plt.figure(figsize=(5, 6))
-gui.add_image(manager.return_img())
+# gui.add_image(manager.return_img())
 gui.create_menu()
-gui.set_labels()
+# gui.set_labels()
 gui.create_main_loop()
 
 

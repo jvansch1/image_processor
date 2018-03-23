@@ -16,6 +16,9 @@ class ColorConverter:
     def to_grayscale(self):
         return cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
 
+    def grayscale_to_RGB(self):
+        return cv2.cvtColor(self.img, cv2.COLOR_GRAY2RGB)
+
     def get_reds(self):
         return self.img.item(10, 10, 2)
 

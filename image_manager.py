@@ -12,6 +12,9 @@ class ImageManager:
         self.img = cv2.imread(url)
         return self.img
 
+    def reset_image(self, numpy_image):
+        self.img = numpy_image
+
     def size(self):
         return self.img.size
 
@@ -21,19 +24,11 @@ class ImageManager:
     def create_color_converter(self):
         return ColorConverter(self.img)
 
-    def display_image(self, figsize, cmap=None):
-        plt.figure(figsize=figsize)
-        plt.imshow(self.img, cmap=cmap)
-
     def convert(self, convert):
-        self.img = getattr(self.create_color_converter(), convert)()
-
-    def get_reds(self):
-        return self.create_color_converter().get_reds()
-
-    def set_reds(self):
-        self.create_color_converter().set_reds()
-        return self.img
+        if convert == '':
+            return self.img
+        else:
+            return getattr(self.create_color_converter(), convert)()
 
     def set_to_black(self):
         for idx, row in enumerate(self.img):
